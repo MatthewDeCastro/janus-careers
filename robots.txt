@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://matthewdecastro.github.io/janus-careers/sitemap.xml
