@@ -16,10 +16,10 @@ function adaptRoles(raw,todayStr){
 }
 var ARTN = 0;
 /* photo library: Gemini images in the Janus Digital house style. FOCUS = crop centre [x%,y%] */
-var FOCUS = {p1:[50,40],p1c:[50,38],p3:[72,45],p5:[72,42],p6:[70,48],p7:[72,38],p8:[72,34],p9:[58,55],p10:[78,55],p11:[66,50],p12:[60,50]};
-var TEAM_IMG={'Engineering':'p5','Commercial':'p3','Delivery':'p10'},TEAM_FALL=['p5','p3','p10'];
+var FOCUS = {p1:[50,40],p1c:[50,38],p3:[72,45],p5:[72,42],p6:[70,48],p7:[72,38],p8:[72,34],p9:[58,55],p10:[78,55],p11:[66,50],p12:[60,50],c1:[40,45],c2:[50,62],c3:[62,50],c4:[55,52],c5:[50,50],c6:[68,55]};
+var TEAM_IMG={'Engineering':'c5','Commercial':'c4','Delivery':'c3'},TEAM_FALL=['c5','c4','c3'];
 function teamImg(d){return TEAM_IMG[d]||TEAM_FALL[Math.abs(hashStr(String(d)))%3]}
-var PH={p1:'assets/photos/p1.jpg',p3:'assets/photos/p3.jpg',p5:'assets/photos/p5.jpg',p6:'assets/photos/p6.jpg',p7:'assets/photos/p7.jpg',p8:'assets/photos/p8.jpg',p10:'assets/photos/p10.jpg'};
+var PH={p1:'assets/photos/p1.jpg',p3:'assets/photos/p3.jpg',p5:'assets/photos/p5.jpg',p6:'assets/photos/p6.jpg',p7:'assets/photos/p7.jpg',p8:'assets/photos/p8.jpg',p10:'assets/photos/p10.jpg',c1:'assets/photos/c1.jpg',c2:'assets/photos/c2.jpg',c3:'assets/photos/c3.jpg',c4:'assets/photos/c4.jpg',c5:'assets/photos/c5.jpg',c6:'assets/photos/c6.jpg'};
 function phUrl(k){return BASE+(PH[k]||PH.p1)}
 function photo(k,soft){var f=FOCUS[k]||[50,50];return '<img src="'+phUrl(k)+'" alt="" style="object-position:'+f[0]+'% '+f[1]+'%"><i class="ov'+(soft?' soft':'')+'"></i>'}
 
@@ -183,21 +183,22 @@ function heartSvg(){return '<svg viewBox="0 0 24 24" aria-hidden="true"><path d=
 function nSaved(){return Object.keys(st.saved).filter(function(k){return st.saved[k]}).length}
 function pubHome(){
  var cityKeys=Object.keys(CITIES);
- var h='<div class="gold"></div><div class="top"><div class="nav"><a data-go="where">Where we hire</a><a data-go="match">Find your fit</a><a data-go="teams">Teams</a><a data-go="roles">Open roles</a><a data-go="how">How we hire</a><a class="sv" id="savedlink">Saved <b id="savedn">0</b></a></div>'+logo()+'<div class="prog" id="progi"></div></div>';
+ var h='<div class="gold"></div><div class="top"><div class="nav"><a data-go="video">What we do</a><a data-go="where">Where we hire</a><a data-go="teams">Teams</a><a data-go="roles">Open roles</a><a data-go="how">Why join</a><a data-go="community">Talent community</a><a class="sv" id="savedlink">Saved <b id="savedn">0</b></a></div>'+logo()+'<div class="prog" id="progi"></div></div>';
  if(st.notice)h+='<div class="alert" style="margin:0;border-radius:0"><div><b style="font-family:Poppins,Arial,sans-serif;color:#003A7D">'+esc(st.notice)+'</b></div></div>';
- h+='<div class="hero" id="hero"><div class="in"><div><div class="live"><i></i><span id="ticker"></span></div><h1>Help run the world’s <em id="rot">'+HERO_WORDS[0]+'</em></h1><p>Janus Digital™ is the agentic AI platform that runs the world’s real assets. We are growing across Singapore, the UK and beyond, and we are hiring people who want to work on technology that matters.</p><a class="btn gold" data-go="roles">See open roles</a> <a class="btn ghost" style="border-color:#fff;color:#fff;margin-left:6px" data-go="match">Find your fit</a></div><div class="art slides" id="slides">'+['p7','p8','p6'].map(function(k,i){return '<div class="sl'+(i?'':' on')+'">'+photo(k)+'</div>'}).join('')+'<div class="sdots">'+[0,1,2].map(function(i){return '<button type="button" data-slide="'+i+'" aria-label="Photo '+(i+1)+'" class="'+(i?'':'on')+'"></button>'}).join('')+'</div></div></div></div>';
+ h+='<div class="hero" id="hero"><div class="in"><div><div class="live"><i></i><span id="ticker"></span></div><h1>Help run the world’s <em id="rot">'+HERO_WORDS[0]+'</em></h1><p>Janus Digital™ is the agentic AI platform that runs the world’s real assets. We are growing across Singapore, the UK and beyond, and we are hiring people who want to work on technology that matters.</p><a class="btn gold" data-go="roles">See open roles</a> <a class="btn ghost" style="border-color:#fff;color:#fff;margin-left:6px" data-go="community">Join our Talent Community</a></div><div class="art slides" id="slides">'+['p7','p8','p6'].map(function(k,i){return '<div class="sl'+(i?'':' on')+'">'+photo(k)+'</div>'}).join('')+'<div class="sdots">'+[0,1,2].map(function(i){return '<button type="button" data-slide="'+i+'" aria-label="Photo '+(i+1)+'" class="'+(i?'':'on')+'"></button>'}).join('')+'</div></div></div></div>';
  h+='<div class="stats"><div class="stat"><b data-to="15" data-suf="+">0</b><span>years of foundational R&amp;D</span></div><div class="stat"><b data-to="76">0</b><span>granted patents</span></div><div class="stat"><b data-to="10000" data-suf="+">0</b><span>building datasets</span></div><div class="stat"><b data-to="253">0</b><span>cities</span></div></div>';
- h+='<div class="wrap rv" id="where"><h2 class="sec-t">Where we are hiring</h2><p class="sec-s">Click a city to zoom in and see its roles. Drag to explore the map.</p><div class="mapbox"><div class="mapcard" id="mapcard"><div class="mapv" id="mapv"></div><div class="mcity" id="mcity"></div><div class="tip" id="tip"></div></div><div class="locs" id="locs"></div></div></div>';
- h+='<div class="wrap rv" id="match"><h2 class="sec-t">Find roles that fit you</h2><p class="sec-s">Pick the areas you work in. We rank the open roles by how well they match. Nothing is saved or sent.</p><div class="fit"><div class="chs" id="areas"></div><div class="best" id="best"></div></div></div>';
+ h+='<div class="wrap rv" id="video"><h2 class="sec-t">What we do</h2><p class="sec-s">A short film on how Janus Digital™ runs the world’s real assets. About four minutes.</p><div class="vidbox"><video id="wwd" preload="metadata" playsinline poster="'+BASE+'assets/video/poster.jpg"><source src="'+BASE+'assets/video/what-we-do.mp4" type="video/mp4"></video><button class="vplay" id="vplay" type="button" aria-label="Play the What we do film"><i></i></button></div></div>';
+h+='<div class="wrap rv" id="where"><h2 class="sec-t">Where we are hiring</h2><p class="sec-s">Click a city to zoom in and see its roles. Drag to explore the map.</p><div class="mapbox"><div class="mapcard" id="mapcard"><div class="mapv" id="mapv"></div><div class="mcity" id="mcity"></div><div class="tip" id="tip"></div></div><div class="locs" id="locs"></div></div></div>';
  h+='<div class="wrap rv" id="teams"><h2 class="sec-t">Our teams</h2><p class="sec-s">Pick a team to see its open roles.</p><div class="teams">'+uniq('dept').map(function(d){var n=ROLES.filter(function(r){return r.dept===d}).length;return '<button class="team" type="button" data-team="'+d+'"><div class="art">'+photo(teamImg(d))+'</div><div class="t"><h3>'+d+'</h3><p>'+esc(teamTxt(d))+'</p><span class="tn">'+n+' open role'+(n===1?'':'s')+'</span></div></button>'}).join('')+'</div></div>';
- h+='<div class="wrap" id="roles"><h2 class="sec-t">Open roles</h2><p class="sec-s">Search by title, skill or place. Click a role for a quick look, or save it for later.</p>';
- h+='<div class="filters"><div><label class="l" for="q">Search</label><input type="text" id="q" placeholder="Job title, skill or keyword" value="'+esc(st.q)+'"></div><div><label class="l" for="fl">Location</label><select id="fl">'+opts(cityKeys,'All locations',st.loc,function(c){return CITIES[c].full})+'</select></div><div><label class="l" for="fd">Team</label><select id="fd">'+opts(uniq('dept'),'All teams',st.dept)+'</select></div><div><label class="l" for="fm">Work model</label><select id="fm">'+opts(uniq('mode'),'Any',st.mode)+'</select></div></div>';
- h+='<div class="active" id="active"></div><p class="count" id="count"></p><div id="rolelist"></div>';
+ h+='<div class="wrap" id="roles"><h2 class="sec-t">Find your role</h2><p class="sec-s">Search by title, skill or place, then narrow the list on the left. Tick the areas you work in and we rank the open roles by how well they match. Nothing is saved or sent.</p>';
+h+='<div class="rsearch"><label class="l" for="q">Search</label><input type="text" id="q" placeholder="Job title, skill or keyword" value="'+esc(st.q)+'"></div>';
+h+='<div class="rgrid"><aside class="rside"><div class="rsh">Filter roles</div><div class="f"><label class="l" for="fl">Location</label><select id="fl">'+opts(cityKeys,'All locations',st.loc,function(c){return CITIES[c].full})+'</select></div><div class="f"><label class="l" for="fd">Team</label><select id="fd">'+opts(uniq('dept'),'All teams',st.dept)+'</select></div><div class="f"><label class="l" for="fm">Work model</label><select id="fm">'+opts(uniq('mode'),'Any',st.mode)+'</select></div><div class="rsh t2">Areas you work in</div><div class="chs" id="areas"></div><div class="best" id="best"></div><button class="btn ghost rclear" type="button" data-clear="all">Clear all filters</button></aside><div class="rmain"><div class="active" id="active"></div><p class="count" id="count"></p><div id="rolelist"></div></div></div></div>';
+h+='<div class="wrap rv" id="how"><h2 class="sec-t">Why people join</h2><p class="sec-s">What makes Janus Digital a place to build a career.</p><div class="joinband"><img src="'+phUrl('p1')+'" alt=""><i class="ov"></i><div class="jt"><b>WHY PEOPLE JOIN</b><h3>Work on the systems that run real buildings and cities</h3></div></div><div class="three"><div class="tile rv"><h3>Depth</h3><p>Built on more than 15 years of foundational R&amp;D and over $100M invested in the platform.</p></div><div class="tile rv" style="transition-delay:.1s"><h3>Evidence</h3><p>Grounded in verified operational data, audited end to end.</p></div><div class="tile rv" style="transition-delay:.2s"><h3>Pace</h3><p>Full deployment within 14 days of kickoff, with senior domain experts alongside you.</p></div></div>';
  h+='</div>';
- h+='<div class="wrap rv" id="how"><h2 class="sec-t">Why people join</h2><p class="sec-s">What makes Janus Digital a place to build a career.</p><div class="joinband"><img src="'+phUrl('p1')+'" alt=""><i class="ov"></i><div class="jt"><b>WHY PEOPLE JOIN</b><h3>Work on the systems that run real buildings and cities</h3></div></div><div class="three"><div class="tile rv"><h3>Depth</h3><p>Built on more than 15 years of foundational R&amp;D and over $100M invested in the platform.</p></div><div class="tile rv" style="transition-delay:.1s"><h3>Evidence</h3><p>Grounded in verified operational data, audited end to end.</p></div><div class="tile rv" style="transition-delay:.2s"><h3>Pace</h3><p>Full deployment within 14 days of kickoff, with senior domain experts alongside you.</p></div></div>';
- h+='<h2 class="sec-t" style="margin-top:34px">How we hire</h2><p class="sec-s">Click a step to see what happens.</p><div class="stepper" id="stepper"><div class="stline"><i id="stfill"></i></div><div class="sts">'+STEPS.map(function(x,i){return '<button type="button" class="stb" data-step="'+i+'"><span>'+(i+1)+'</span>'+x.t+'</button>'}).join('')+'</div><div class="stpanel" id="stpanel"></div></div></div>';
- return h+foot();
+h+='<div class="wrap rv" id="community"><div class="comm"><div class="cimgs"><img class="a" src="'+phUrl('c1')+'" alt=""><img class="b" src="'+phUrl('c6')+'" alt=""><img class="c" src="'+phUrl('c2')+'" alt=""></div><div class="ctext"><b class="eb">TALENT COMMUNITY</b><h2>Join our Talent Community</h2><p>Not seeing the right role today? Tell us about you and join our Talent Community. We keep your details on file and get in touch when a role opens that fits your skills and interests.</p><ul><li>Upload your CV once</li><li>Tell us where you are based, your experience and the areas you want to work in</li><li>Hear from our recruiting team first when a matching role opens</li></ul><a class="btn gold" id="joinbtn" href="'+esc(joinHref())+'" rel="noopener">Join the Talent Community</a><p class="soft">Takes about two minutes. We store your details only to consider you for roles at Janus Digital.</p></div></div></div>';
+return h+foot();
 }
+function joinHref(){if(APPLY.link){return APPLY.link+(APPLY.link.indexOf('?')>=0?'&':'?')+'join=1&src=site'}if(APPLY.mail)return 'mailto:'+APPLY.mail+'?subject='+encodeURIComponent('Talent Community');return '#community'}
 function foot(){return '<div class="foot"><span>\u00a9 '+esc(SITE.entity)+', '+esc(SITE.year)+(SITE.privacy?' &middot; <a href="'+esc(SITE.privacy)+'" style="color:inherit">Privacy notice</a>':'')+'</span><span>Careers at Janus Digital\u2122</span></div>'}
 function setStep(i){
  st.step=i;var x=STEPS[i];
@@ -229,7 +230,7 @@ function updateHome(keep){
  $('active').innerHTML=a;
  var h='';
  list.forEach(function(r,i){h+=roleCard(r,i,keep)});
- if(!list.length)h='<div class="card">'+(st.onlySaved&&!nSaved()?'You have not saved any roles yet. Use the heart on a role to keep it here.':(ROLES.length?'No roles match those filters.':'We have no open roles right now. Please check back soon.'))+(ROLES.length?' <a style="color:#5170FF;cursor:pointer" data-clear="all">Clear the filters</a>':'')+'</div>';
+ if(!list.length)h='<div class="card">'+(st.onlySaved&&!nSaved()?'You have not saved any roles yet. Use the heart on a role to keep it here.':(ROLES.length?'No roles match those filters.':'We have no open roles right now. Please check back soon, or join our Talent Community below.'))+(ROLES.length?' <a style="color:#5170FF;cursor:pointer" data-clear="all">Clear the filters</a>':'')+'</div>';
  $('rolelist').innerHTML=h;
  document.querySelectorAll('#mapcard .pin').forEach(function(p){var c=p.getAttribute('data-c');p.setAttribute('class','pin'+(st.focus===c?' on':'')+(st.focus&&st.focus!==c?' dim':''))});
  var l='';Object.keys(CITIES).filter(function(c){return !CITIES[c].nomap}).forEach(function(c){var n=ROLES.filter(function(r){return r.city===c&&baseMatches(r,'loc')}).length;
@@ -246,7 +247,7 @@ function updateHome(keep){
  $('areas').innerHTML=AREAS.map(function(x){var on=st.areas[x.k];return '<button type="button" class="sk'+(on?' on':'')+'" data-area="'+x.k+'" aria-pressed="'+(on?'true':'false')+'"><span class="box">'+(on?'&#10003;':'')+'</span>'+x.l+'</button>'}).join('');
  var any=AREAS.some(function(x){return st.areas[x.k]});
  if(!any)$('best').innerHTML='<span class="soft">Pick one or more areas to rank the roles.</span>';
- else{var top=ROLES.map(function(r){return {r:r,s:scoreOf(r).pct}}).sort(function(a,b){return b.s-a.s})[0]||{s:0};$('best').innerHTML=top.s?'Best fit: <b style="color:#003A7D">'+esc(top.r.t)+'</b> in '+esc(locOf(top.r))+' ('+top.s+'% of its key skills). <a style="color:#5170FF;cursor:pointer" data-go="roles">See the ranked roles</a> &middot; <a style="color:#5170FF;cursor:pointer" data-area="none">Clear</a>':'No role lists those skills yet. Try another area, or register your interest.'}
+ else{var top=ROLES.map(function(r){return {r:r,s:scoreOf(r).pct}}).sort(function(a,b){return b.s-a.s})[0]||{s:0};$('best').innerHTML=top.s?'Best fit: <b style="color:#003A7D">'+esc(top.r.t)+'</b> in '+esc(locOf(top.r))+' ('+top.s+'% of its key skills). <a style="color:#5170FF;cursor:pointer" data-go="roles">See the ranked roles</a> &middot; <a style="color:#5170FF;cursor:pointer" data-area="none">Clear</a>':'No role lists those skills yet. Try another area, or <a style="color:#5170FF;cursor:pointer" data-go="community">join our Talent Community</a>.'}
  var sn=$('savedn');if(sn){sn.textContent=nSaved();$('savedlink').className='sv'+(st.onlySaved?' on':'')}
 
 }
@@ -359,7 +360,7 @@ function count(e){
 function onScroll(){
  var y=window.pageYOffset||0,hh=document.documentElement.scrollHeight-window.innerHeight,pi=$('progi');
  if(pi)pi.style.width=(hh>0?y/hh*100:0)+'%';
- var cur='';['where','match','teams','roles','how'].forEach(function(id){var e=$(id);if(e&&e.getBoundingClientRect().top<180)cur=id});
+ var cur='';['video','where','teams','roles','how','community'].forEach(function(id){var e=$(id);if(e&&e.getBoundingClientRect().top<180)cur=id});
  document.querySelectorAll('.top .nav a[data-go]').forEach(function(a){a.classList.toggle('cur',a.getAttribute('data-go')===cur)});
  var sl=$('slides');if(sl&&y<900)sl.style.setProperty('--sy',(y*.07).toFixed(1)+'px');
 }
@@ -384,10 +385,7 @@ function startHero(){
  var w=0,rot=$('rot');
  if(!REDUCE)TM.rot=setInterval(function(){rot.className='out';setTimeout(function(){w=(w+1)%HERO_WORDS.length;rot.textContent=HERO_WORDS[w];rot.className=''},260)},3200);
 }
-function startSteps(){
- setStep(st.step||0);
- if(!REDUCE)TM.step=setInterval(function(){if(!st.stepHold)setStep(((st.step||0)+1)%STEPS.length)},4500);
-}
+function startSteps(){}
 window.__mapReset=function(){st.focus='';updateHome(true);if(MAPS.home)MAPS.home.reset()};
 function bind(){
  if(!st.role){
@@ -399,9 +397,10 @@ function bind(){
   var app=$('app');
   app.onclick=function(e){
    var t=e.target;
-   var sv=t.closest('[data-save]');if(sv){toggleSave(sv.getAttribute('data-save'));return}
+   var vp=t.closest('#vplay');if(vp){var vv=$('wwd');if(vv){vv.setAttribute('controls','');var pp=vv.play();if(pp&&pp.catch)pp.catch(function(){})}vp.style.display='none';return}
+var sv=t.closest('[data-save]');if(sv){toggleSave(sv.getAttribute('data-save'));return}
    var sl=t.closest('#savedlink');if(sl){st.onlySaved=!st.onlySaved;updateHome(true);goTo('roles');return}
-   var cl=t.closest('[data-clear]');if(cl){var k=cl.getAttribute('data-clear');if(k==='all'){st.q='';st.loc='';st.dept='';st.mode='';st.onlySaved=false;$('q').value=''}else if(k==='saved'){st.onlySaved=false}else{st[k]='';if(k==='q')$('q').value=''}updateHome(true);return}
+   var cl=t.closest('[data-clear]');if(cl){var k=cl.getAttribute('data-clear');if(k==='all'){st.q='';st.loc='';st.dept='';st.mode='';st.onlySaved=false;st.areas={};st.focus='';$('q').value=''}else if(k==='saved'){st.onlySaved=false}else{st[k]='';if(k==='q')$('q').value=''}updateHome(true);return}
    var ar=t.closest('[data-area]');if(ar){var ak=ar.getAttribute('data-area');if(ak==='none')st.areas={};else st.areas[ak]=!st.areas[ak];updateHome(false);return}
    var wd=t.closest('[data-world]');if(wd){st.focus='';updateHome(true);return}
    var lcf=t.closest('[data-listcity]');if(lcf){st.loc=st.focus;updateHome(true);goTo('roles');return}
