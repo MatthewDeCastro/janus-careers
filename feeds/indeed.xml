@@ -2,7 +2,29 @@
 <source>
 <publisher>Janus Digital</publisher>
 <publisherurl>https://matthewdecastro.github.io/janus-careers</publisherurl>
-<lastBuildDate>Wed, 28 Oct 2026 09:50:21 GMT</lastBuildDate>
+<lastBuildDate>Wed, 28 Oct 2026 10:40:53 GMT</lastBuildDate>
+<job>
+<title><![CDATA[Digitalization Delivery Engineer]]></title>
+<date>Wed, 28 Oct 2026 10:40:53 GMT</date>
+<referencenumber>proj_f52a2e79</referencenumber>
+<requisitionid>proj_f52a2e79</requisitionid>
+<url><![CDATA[https://matthewdecastro.github.io/janus-careers/jobs/digitalization-delivery-engineer-2e79/?src=indeed&utm_source=indeed&utm_medium=job_board&utm_campaign=proj_f52a2e79]]></url>
+<company><![CDATA[Janus Digital]]></company>
+<sourcename>Janus Digital</sourcename>
+<city><![CDATA[Singapore]]></city>
+<state><![CDATA[Singapore]]></state>
+<country><![CDATA[SG]]></country>
+<postalcode></postalcode>
+<email>matthews@janusd.com</email>
+<description><![CDATA[<p>As a Digitalisation Delivery Engineer based in Singapore, you will be the bridge between the physical and digital sides of a building. You will verify that the MEP and spatial data feeding our platform is accurate and complete, so our AI agents can reason and act with precision, setting the delivery standard for our expansion across 50+ markets.</p><h3>About Janus Digital</h3><p>Janus Digital™ is the agentic AI platform that runs the world&#39;s real assets. It is built on 15+ years of foundational R&amp;D, 76 granted patents and over $100M invested, and is live across 10,000+ building datasets in 253 cities and 10+ asset classes, offices, hotels, shopping centres, hospitals, data centres and more. We work on an outcome-based model: we earn on the verified value the platform creates.</p><h3>What you will do</h3><ul><li>Verify spatial and MEP equipment data (HVAC, electrical, plumbing, fire, security and building automation) against physical buildings, and register accurate equipment and relationship data on our delivery platform.</li><li>Encode IoT point lists, prepare protocol-specific binding tables, configure gateways and commission multi-protocol communications (BACnet, Modbus, MQTT, OPC UA, KNX).</li><li>Run self- and peer-reviews so every deliverable meets our global quality benchmarks (precision ≥95%, completeness ≥98%, IoT connectivity ≥95%, data accuracy ≥98%) before client submission.</li><li>Work closely with Project Managers on delivery planning, BIM Modellers on model accuracy, and Solution Architects on platform configuration.</li><li>Diagnose and resolve on-site delivery issues, from model-to-reality discrepancies to multi-protocol IoT integration problems.</li></ul><h3>What you will bring</h3><ul><li>2+ years&#39; hands-on experience in MEP design, construction, building digitalisation, BIM delivery, Building Management Systems (BMS) or IoT/smart-building deployment. Candidates from MEP design or construction backgrounds are strongly encouraged to apply.</li><li>Ability to read and interpret mechanical/electrical drawings, identify equipment in the field and understand system relationship hierarchies.</li><li>Working proficiency with Revit, CAD and IFC drawing interpretation, with an understanding of spatial hierarchies and asset relationship models.</li><li>Practical experience with IoT communication protocols and commissioning tools (for example BACnetScan, Modbus Master, NetAssist, UAExpert, MqttInsight).</li><li>Ability to collaborate effectively across cross-functional, multicultural teams.</li></ul><h3>Nice to have</h3><ul><li>Professional English fluency (Mandarin a strong advantage).</li><li>A Diploma or Bachelor&#39;s degree in Engineering (Electrical, Mechanical, Building Services), Facilities Management, IT or a related technical field is a plus, though not required if you bring strong hands-on experience.</li><li>Hands-on wire-level debugging of IoT protocols.</li><li>Practical knowledge of day-to-day building operations and maintenance.</li></ul><h3>Why join Janus Digital</h3><p>Competitive compensation with performance-based incentives tied to delivery quality and client outcomes. A specialist role at the frontier of agentic AI and autonomous building intelligence. Hands-on exposure to a diverse portfolio of commercial offices, hotels, malls and mixed-use developments. Direct collaboration with our global Solution Architecture team and access to a worldwide knowledge base. Clear progression into senior consulting or regional delivery leadership. Sponsorship for professional development, including certifications in building services and energy management.</p>]]></description>
+<salary><![CDATA[SGD 5,500 to 7,000 per month]]></salary>
+<jobtype>fulltime</jobtype>
+<category><![CDATA[]]></category>
+<experience><![CDATA[3+ years]]></experience>
+<education><![CDATA[]]></education>
+<expirationdate>2026-11-19</expirationdate>
+<remotetype></remotetype>
+</job>
 <job>
 <title><![CDATA[Senior Project Manager]]></title>
 <date>Thu, 22 Oct 2026 10:20:22 GMT</date>
